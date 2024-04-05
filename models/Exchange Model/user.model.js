@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const pool = mysql.createPool({ host: config.mysqlHost, user: config.user, password: process.env.DB_PASS || config.password, database: config.database, port: config.mysqlPort });
 const promisePool = pool.promise();
 const { manageWallet } = require("../../controllers/liveDepositManage");
-const { getICOTransfer } = require('../../controllers/Exchange_Controller/user.controller');
+// const { getICOTransfer } = require('../../controllers/Exchange_Controller/user.controller');
 class UserModel {
     getusernotification = async (data) => {
         let sql = `Select * from announcement where status=0  ORDER BY id  DESC`;
