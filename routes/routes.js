@@ -69,6 +69,11 @@ const businessCronController = require('../controllers/businessCron.controller')
 const liveDepositManageController = require('../controllers/liveDepositManage');
 const cmsController = require('../controllers/cms.controller');
 const WebSocket = require('../controllers/Exchange_Controller/webSocket')
+
+//wallet
+const walletController = require('../controllers/walletController')
+//wallet
+
 //Exchange Controller
 // All Validations call here
 const { registerUserSchema, LoginWithAddressSchema, newsLetterSchema, contactRequestSchema, loginUserSchema, ForgotPasswordSchema, ResetPasswordSchema, updatePasswordSchema } = require('../middleware/validators/userValidator.middleware');
@@ -424,6 +429,10 @@ router.post('/withdrawAuthentication', ensureWebToken, exwithdrawController.with
 router.post('/depositForm', receipt, exwithdrawController.depositForm.bind())
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+// wallet routes
+router.post("/balance_of", walletController.balanceOf.bind())
+// wallet routes
 
 const path1 = require('path')
 exports.getImage = async (req, res) => {
